@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<form id="monForm"  class="form-style-8">
+     <section class="codepen-style">
+        <h1 id="h"> Creation Membre</h1>
+    </section>
+
+   <div class="form-group">
+    <div class="form-group col-md-4">
+    <label for="inputcni">CNI</label>
+    <input type="text" class="form-control" class="form-control"  formControlName="cni"  id="inputcni" placeholder="">
+  </div>
+    <div class="form-group">
+    <div class="form-group col-md-4">
+    <label for="inputprenom">Prenom</label>
+    <input type="text" class="form-control" class="form-control"  formControlName="prenom"  id="inputprenom" placeholder="">
+  </div>
+    </div>
+         <div class="form-group">
+    <div class="form-group col-md-4">
+    <label for="inputnom">Nom</label>
+    <input type="text" class="form-control" class="form-control"  formControlName="nom"  id="inputnom" placeholder="">
+  </div>
+   </div>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputtel">Telephone</label>
+      <input type="text" class="form-control" formControlName="tel" id="inputtel" placeholder="">
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="inputadresse">Adresse</label>
+      <input type="text" class="form-control" formControlName="adresse" id="inputadresse" placeholder="">
+    </div>
+
+    <div  class="form-group col-md-4">
+        <label for="inputmail">Email</label>
+      <input type="email" class="form-control" formControlName="email" id="inputmail" placeholder="">
+    </div>
+  <div class="form-group col-md-8">
+     <label for="inputposte">poste</label>
+      <select id="inputposte" class="form-control" formControlName="poste">
+        <option selected>Choisir poste</option>
+        <option></option>
+        <option></option>
+      </select></div>
+<div class="form-group col-md-8" >
+ <button id="btn" type="submit" (click)="addMembreForm()" class="btn btn-primary">Save</button>
+ </div>
+
+</form>
+
+  </body>
+</html>

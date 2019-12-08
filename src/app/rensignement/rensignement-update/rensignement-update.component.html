@@ -1,0 +1,115 @@
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h1 style="text-align: center">Reunions</h1><br>
+      <div class="row" [hidden]="!deleteMessage">
+
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                        <div class="alert alert-info alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">x</button>
+                                <strong>Reunion  supprimé </strong>
+                        </div>
+                </div>
+                <div class="col-sm-4"></div>
+        </div>
+    </div>
+
+
+  <div class="panel-body">
+      <table class="table table-hover table-sm"  >
+          <thead class="thead-light">
+              <tr>
+                  <th>Objectif</th>
+                  <th>Type</th>
+                  <th>Heure Debut</th>
+                  <th>Heure Fin</th>
+                 <th>Date</th>
+                  <th>Pv</th>
+              </tr>
+          </thead>
+          <tbody>
+               <tr *ngFor="let book of r" >
+               <td >{{ book?.objectif }}</td>
+               <td >{{ book?.type_reun}}</td>
+               <td >{{ book?.heu_deb_reu }}</td>      
+               <td >{{ book?.heu_fin_reu }}</td>              
+               <td >{{ book?.date_reun }}</td>    
+               <td >{{ book?.pv_reunion }}</td>             
+  <td>  <button  class='btn btn-info'
+                    data-toggle="modal" data-target="#myModal">Update</button>
+                  </td>
+                 <td><button   class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>
+                </tr>
+          </tbody><br>
+      </table>
+  </div>
+</div>
+
+<div class="modal" aria-labelledby="exampleModalLongTitle" aria-hidden="true" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+                <form   >
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title" style="text-align: center">Update Reunion</h4>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" >
+                <div [hidden]="isupdated">
+
+                    <input type="hidden" class="form-control"  formControlName="id" >
+                            <div class="form-group">
+                                <label for="nameobj">Objectif</label>
+                                <input type="text" id="nameobj"class="form-control"  formControlName="objectif" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="namepv">Pv</label>
+                                <input type="text" id="namepv"  class="form-control" formControlName="pv" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nametype">Type</label>
+                                  <select class="form-control" formControlName="type" required id="nametype">
+                                    <option value="B-Tech" >obligatoire</option>
+                                    <option value="BCA" >Facultative</option>
+
+                                  </select>
+                            </div>
+                         <div class="form-group col-md-4">
+                                     <label for="namehd">Heure Déb</label>
+                       <input type="time" class="form-control" formControlName="heuredeb" id="namehd" >
+                            </div>
+
+                      <div class="form-group col-md-4">
+                         <label for="namehf" >Heure Fin</label>
+                    <input type="time" class="form-control" formControlName="heurefin" id="namehf" >
+                        </div>
+
+                 <div  class="form-group col-md-4">
+                       <label for="named">Date</label>
+                     <input type="date" class="form-control" formControlName="date" id="named" >
+                    </div>
+
+
+                  </div>
+                  <div [hidden]="!isupdated">
+                      <h4>Reunion Detail Updated!</h4>
+                  </div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer" >
+              <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>
+            </div>
+
+        </form>
+          </div>
+        </div>
+      </div>
+

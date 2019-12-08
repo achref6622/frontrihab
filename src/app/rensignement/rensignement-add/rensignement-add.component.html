@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<form id="monForm"  class="form-style-8">
+     <section class="codepen-style">
+        <h1 id="h">Fiche Réunion</h1>
+    </section>
+
+   <div class="form-group">
+    <div class="form-group col-md-6">
+    <label for="inputobjectif">Objectif</label>
+    <input type="text" class="form-control" class="form-control"  formControlName="objectif_form"  id="inputobjectif" placeholder="">
+  </div>
+
+    <div class="form-group col-md-4">
+      <label for="inputtype">Type</label>
+      <select id="inputtype" class="form-control" formControlName="type_form">
+        <option selected>choisir le type</option>
+        <option>Obligatoire</option>
+        <option>Facultative</option>
+      </select>
+    </div>
+   </div>
+    <div class="form-group col-md-4">
+      <label for="inputheured">Heure Début</label>
+      <input type="time" class="form-control" formControlName="heuredeb_form" id="inputheured" placeholder="">
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="inputheuref">Heure Fin</label>
+      <input type="time" class="form-control" formControlName="heurefin_form" id="inputheuref" placeholder="">
+    </div>
+
+    <div  class="form-group col-md-4">
+        <label for="inputdate">Date de Réunion</label>
+      <input type="date" class="form-control" formControlName="date_form" id="inputdate" placeholder="">
+    </div>
+
+   <div>
+   <table  class="table table-hover table-sm"mlk
+      >
+          <thead class="thead-light">
+              <tr>
+                  <th>Nom  Membre</th>
+                  <th>Prenom Membre</th>
+                  <th>Poste</th>
+                  <th>Action</th>
+
+              </tr>
+          </thead>
+          <tbody>
+               <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button  class='btn btn-info' data-toggle="modal" >Present</button>
+                  </td>
+                </tr>
+          </tbody><br>
+   </table></div>
+   <div class="form-group col-md-8">
+     <label for="inputpv">Pv</label>
+      <textarea id="inputpv" class="form-control" formControlName="pv_form" placeholder="" rows="3">
+
+    </textarea></div>
+<div class="form-group col-md-8" >
+ <button id="btn" type="submit" (click)="addReunionForm()" class="btn btn-primary">Save</button>
+ </div>
+
+</form>
+
+  </body>
+</html>
+

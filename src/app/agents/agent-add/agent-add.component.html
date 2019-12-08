@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+    <h1 style="text-align: center;color :#466798 ;">Agents  </h1>
+      <table class="table table-hover table-sm"  >
+          <thead class="thead-light">
+              <tr>
+                  <th>cin</th>
+                  <th>Nom</th>
+                  <th>prenom</th>
+                  <th>adresse</th>
+                 <th>Tel</th>
+                  <th>email</th>
+                <th>poste</th>
+                <th>Type Agent</th>
+              </tr>
+          </thead>
+          <tbody>
+               <tr >
+                  <td>{{Membre.cin}}</td>
+                  <td>{{Membre.nom}}</td>
+                  <td>{{Membre.prenom}}</td>
+                 <td>{{Membre.adresse}}</td>
+                 <td>{{Membre.tel}}</td>
+                 <td>{{Membre.email}}</td>
+                 <td>{{Membre.poste}}</td>
+
+       <td>  <select class="form-control" formControlName="type" required id="nameposte">
+                                    <option value="B-Tech" [selected]="'saisie' == membre.type">saisie</option>
+                                    <option value="BCA" [selected]="'validation' == membre.type">validation</option>
+         <option value="BCA" [selected]="'consulationtableau ' == membre.type">consulation tableau de bord</option>
+   <option value="BCA" [selected]="'consulationannuaire' == membre.type">consulation tableau de annuaire</option>
+                                  </select>
+
+       </td>
+                </tr>
+          </tbody><br>
+      </table>
+
+
+  </body>
+</html>

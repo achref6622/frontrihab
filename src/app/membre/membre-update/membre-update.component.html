@@ -1,0 +1,121 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h1 style="text-align: center">Membres</h1><br>
+      <div class="row" [hidden]="!deleteMessage">
+
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                        <div class="alert alert-info alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">x</button>
+                                <strong>Membre  supprimé </strong>
+                        </div>
+                </div>
+                <div class="col-sm-4"></div>
+        </div>
+    </div>
+
+
+  <div class="panel-body">
+      <table class="table table-hover table-sm"   >
+          <thead class="thead-light">
+              <tr>
+                  <th>cin</th>
+                  <th>Nom</th>
+                  <th>prenom</th>
+                  <th>adresse</th>
+                 <th>Tel</th>
+                  <th>email</th>
+                <th>poste</th>
+              </tr>
+          </thead>
+          <tbody>
+               <tr *ngFor="let membre of membrees | async" >
+                  <td>{{membre.cin}}</td>
+                  <td>{{membre.nom}}</td>
+                  <td>{{membre.prenom}}</td>
+                 <td>{{membre.adresse}}</td>
+                 <td>{{membre.tel}}</td>
+                 <td>{{membre.email}}</td>
+                 <td>{{membre.poste_membre}}</td>
+  <td>  <button (click)="updateMembre(membre.cin)" class='btn btn-info'
+                    data-toggle="modal" data-target="#myModal">Update</button>
+
+                  </td>
+                 <td><button (click)="deleteMembre(membre)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>
+                </tr>
+          </tbody><br>
+      </table>
+  </div>
+</div>
+
+<div class="modal" aria-labelledby="exampleModalLongTitle" aria-hidden="true" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+                <form   >
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title" style="text-align: center">Update Membre</h4>
+
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" >
+                <div [hidden]="isupdated">
+
+                    <input type="hidden" class="form-control"  formControlName="id" >
+                            <div class="form-group">
+                                <label for="namecin">cin</label>
+                                <input type="text" id="namecin"class="form-control"  formControlName="cin" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="namenom">prenom</label>
+                                <input type="text" id="namenom"  class="form-control" formControlName="prenom" >
+                            </div>
+                     <div class="form-group">
+                                <label for="namenom">nom</label>
+                                <input type="text" id="nameprenom"  class="form-control" formControlName="nom" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nameposte">poste</label>
+                                  <select class="form-control" formControlName="poste" required id="nameposte">
+                                    <option value="B-Tech" [selected]="'obligatoire' == membre.poste_membre"></option>
+                                    <option value="BCA" [selected]="'facultative' == membre.poste_membre"></option>
+
+                                  </select>
+                            </div>
+                         <div class="form-group col-md-4">
+                                     <label for="namead">adresse</label>
+                       <input type="text" class="form-control" formControlName="adresse" id="namead" >
+                            </div>
+
+                      <div class="form-group col-md-4">
+                         <label for="nametel" >Tel</label>
+                    <input type="text" class="form-control" formControlName="tel" id="nametel" >
+                        </div>
+
+                 <div  class="form-group col-md-4">
+                       <label for="nameemail">email</label>
+                     <input type="email" class="form-control" formControlName="email" id="nameemail" >
+                    </div>
+
+
+                  </div>
+                  <div [hidden]="!isupdated">
+                      <h4>Membre Detail Updated!</h4>
+                  </div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer" >
+              <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>
+            </div>
+
+        </form>
+          </div>
+        </div>
+      </div>
+
